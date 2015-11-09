@@ -92,21 +92,27 @@ Review.find({}).remove(function() {
 Inventory.find({}).remove(function() {
   Inventory.create({
     productId : 1001,
+    price : 399,
     count : 20
   }, {
     productId : 1002,
+    price : 799,
     count : 30
   }, {
     productId : 1003,
+    price : 149,
     count : 100
   },  {
     productId : 1004,
+    price : 199,
     count : 5
   },  {
     productId : 1005,
+    price : 99,
     count : 50
   },{
     productId : 1006,
+    price : 29,
     count : 200
   });
 });

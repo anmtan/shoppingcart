@@ -11,7 +11,7 @@ angular.module('shoppingcartApp')
 
     // Getting inventory from inventory service
     $http.get('/api/inventorys/' + productId).success(function(inventory) {
-      $scope.numInStock = inventory.count;
+      $scope.inventory = inventory;
     });
 
 	// Getting reviews from review service

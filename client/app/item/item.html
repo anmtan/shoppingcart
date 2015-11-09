@@ -4,8 +4,9 @@
   <h2 class="page-header">{{item.name}}</h2>
   <p>{{item.info}}</p>
 
-  <div> In Stock: {{numInStock}} &nbsp;&nbsp;
-  		<button>Buy it now</button>
+  <div>${{inventory.price}} &nbsp;&nbsp;
+  		<button>Buy it now</button> <br/><br/>
+  		In Stock: {{inventory.count}}
   </div>
 
   <h4 class="page-header">Reviews</h4>

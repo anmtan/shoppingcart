@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
 
 var InventorySchema = new Schema({
   productId: Number,
+  price: Number,
   count: Number
 });
 
