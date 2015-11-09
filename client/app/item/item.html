@@ -1,0 +1,18 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <h2 class="page-header">{{item.name}}</h2>
+  <p>{{item.info}}</p>
+
+  <div> In Stock: {{numInStock}} &nbsp;&nbsp;
+  		<button>Buy it now</button>
+  </div>
+
+  <h4 class="page-header">Reviews</h4>
+  <div> 
+  	<ul ng-repeat="review in reviews">
+  		<li>Rating: {{review.rating}}</li>
+        <li>Review: {{review.review}}</li>
+      </ul>
+  </div>
+</div>
