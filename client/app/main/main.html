@@ -8,25 +8,18 @@
   </div>
 </header>
 
-<!--
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}</a></li>
-      </ul>
-    </div>
-  </div>
+<div style="float:right">
+    <select name="selectedOption" id="selectedOption" 
+        ng-options="option.name for option in data.availableOptions track by option.id"
+        ng-model="data.selectedOption"></select>
 </div>
--->
 
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
       <h2 class="page-header">Black Friday Deals:</h2>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="product in products">
-        <li><a href="/item?productId={{product.productId}}" tooltip="{{product.info}}">{{product.name}}</a></li>
+      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="product in data.products">
+        <li><a href="/item?productId={{product.productId}}&v={{data.selectedOption.id}}" tooltip="{{product.info}}">{{product.name}}</a></li>
       </ul>
     </div>
   </div>

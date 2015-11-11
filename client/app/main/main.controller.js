@@ -2,30 +2,19 @@
 
 angular.module('shoppingcartApp')
   .controller('MainCtrl', function ($scope, $http) {
-    $scope.products = [];
+    $scope.data = {
+        products : [],
+        availableOptions : [
+          {id: '0', name: 'Monolithic'},
+          {id: '1', name: 'Microservices-api-gateway-multi-request'},
+          {id: '2', name: 'Microservices-api-gateway-single-request'}
+        ],
+        selectedOption : {id: '0', name: 'Monolithic'}
+    }; 
 
     $http.get('/api/products').success(function(products) {
-      $scope.products = products;
+      $scope.data.products = products;
     });
 
 
-
-
-    // $scope.awesomeThings = [];
-
-    // $http.get('/api/things').success(function(awesomeThings) {
-    //   $scope.awesomeThings = awesomeThings;
-    // });
-
-    // $scope.addThing = function() {
-    //   if($scope.newThing === '') {
-    //     return;
-    //   }
-    //   $http.post('/api/things', { name: $scope.newThing });
-    //   $scope.newThing = '';
-    // };
-
-    // $scope.deleteThing = function(thing) {
-    //   $http.delete('/api/things/' + thing._id);
-    // };
   });
