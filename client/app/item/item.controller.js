@@ -3,20 +3,33 @@
 angular.module('shoppingcartApp')
   .controller('ItemCtrl', function ($scope, $location, $http) {
     var productId = $location.search().productId;
+    var version = $location.search().v;
 
-    // Getting products from product catalog service
-    $http.get('/api/products/' + productId).success(function(item) {
-      $scope.item = item;
-    });
+    console.log("productId :" + productId + " version :" + version);
 
-    // Getting inventory from inventory service
-    $http.get('/api/inventorys/' + productId).success(function(inventory) {
-      $scope.inventory = inventory;
-    });
+    //For version 1 this is making all calls to different micro services
+    if(v=='1'){
+        // Getting products from product catalog service
+        $http.get('/api/products/' + productId).success(function(item) {
+          $scope.item = item;
+        });
 
-	// Getting reviews from review service
-    $http.get('/api/reviews/' + productId).success(function(reviews) {
-      $scope.reviews = reviews;
-    });
+        // Getting inventory from inventory service
+        $http.get('/api/inventorys/' + productId).success(function(inventory) {
+          $scope.inventory = inventory;
+        });
+
+        // Getting reviews from review service
+        $http.get('/api/reviews/' + productId).success(function(reviews) {
+          $scope.reviews = reviews;
+        });
+    }
+    else if(v=='2'){
+        // Getting products from product catalog service
+        $http.get('/api/products/' + productId).success(function(item) {
+          $scope.item = item;
+        });
+    }
+    
 
   });
