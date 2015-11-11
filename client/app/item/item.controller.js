@@ -8,7 +8,13 @@ angular.module('shoppingcartApp')
     console.log("productId :" + productId + " version :" + version);
 
     //For version 1 this is making all calls to different micro services
-    if(v=='1'){
+    if(version=='1'){
+        // Getting products from product catalog service
+        $http.get('/api/products/' + productId).success(function(item) {
+          $scope.item = item;
+        });
+    }
+    else {
         // Getting products from product catalog service
         $http.get('/api/products/' + productId).success(function(item) {
           $scope.item = item;
@@ -22,12 +28,6 @@ angular.module('shoppingcartApp')
         // Getting reviews from review service
         $http.get('/api/reviews/' + productId).success(function(reviews) {
           $scope.reviews = reviews;
-        });
-    }
-    else if(v=='2'){
-        // Getting products from product catalog service
-        $http.get('/api/products/' + productId).success(function(item) {
-          $scope.item = item;
         });
     }
     
