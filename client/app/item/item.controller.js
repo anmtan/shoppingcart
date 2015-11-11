@@ -10,7 +10,7 @@ angular.module('shoppingcartApp')
     //For version 1 this is making all calls to different micro services
     if(version=='1'){
         // Getting products from product catalog service
-        $http.get('/api/products/' + productId).success(function(item) {
+        $http.get('/dev/product?productId=' + productId).success(function(item) {
           $scope.item = item;
         });
     }
